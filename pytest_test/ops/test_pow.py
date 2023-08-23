@@ -18,8 +18,13 @@ x_n = [(x[i], n[i])for i in range(len(x))]
 def test_pow(x, n):
     print("x:", x, "n:", n)
     val = 1
-    for i in range(n):
-        val = val * x
+    if n >= 0:
+        for i in range(n):
+            val = val * x
+    else:
+        for i in range(abs(n)):
+            val = val * x
+        val = 1 / val
 
     val_gt = pow_gt(x, n)
     assert val == val_gt
